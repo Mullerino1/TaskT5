@@ -18,13 +18,13 @@ export default function Grid(props: GridProps){
 
     return (
         <section>
-    <article className="grid">
-        {students.map((student) => (
+        <article className="grid">
+            {students.map((student) => (
             <Student key={student.id} name={student.name} id={student.id} />
-        ))}
-    </article>
+             ))}
+        </article>
     
-     <StudentForm onAddStudent={onAddStudent}/>
+         <StudentForm onAddStudent={onAddStudent}/>
 
     </section>
        
