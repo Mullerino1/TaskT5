@@ -1,6 +1,6 @@
 // import Student from "./Components/Students";
 // import Avatar from "./Components/Avatar";
-import Grid from "./Components/grid";
+import Grid from "./Components/Grid";
 import { useState } from "react"
 import Total from "./Components/Total";
 import type { Student } from "./Components/Types";
@@ -17,9 +17,12 @@ const initialStudents = [
 function App() {
   const [students, setStudents] = useState<Student[]>(initialStudents ?? [])
 
-  const onAddStudent = (student: Omit<Student, "id">) => {
-    setStudents((prev) => [...prev, {id: crypto.randomUUID(), ...student}])
-}
+//   const onAddStudent = (student: Omit<Student, "id">) => {
+//     setStudents((prev) => [...prev, {id: crypto.randomUUID(), ...student}])
+// }
+const onAddStudent = (student: { name: string }) => {
+  setStudents((prev) => [...prev, { id: crypto.randomUUID(), ...student }]);
+};
 
 const onRemoveStudent = (id: string) => {
   setStudents((prev) => prev.filter((student) => student.id !== id))
@@ -31,9 +34,9 @@ const onRemoveStudent = (id: string) => {
     <>
     {/* <Student name="Philip" id="2003"/>  */}
     {/* <Avatar name= '' /> */}
-    <Grid students={students} onAddStudent={onAddStudent} />
+    <Grid students={students} onAddStudent={onAddStudent} onRemoveStudent={onRemoveStudent} />
     <Total total={students.length} />
-    onRemoveStudent={onRemoveStudent}
+    
     </>
 
   )

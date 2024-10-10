@@ -1,7 +1,8 @@
 import Student from "./Students"
-import { useState } from "react"
+// import { useState } from "react"
 import { Student as StudentProps} from "./Types"
 import StudentForm from "./StudentForm"
+import type { PropsWithChildren } from "react"
 
 
 type GridProps = {
@@ -11,8 +12,8 @@ type GridProps = {
 
 }
 
-export default function Grid(props: GridProps){
-    const { students, onAddStudent, onRemoveStudent } = props
+export default function Grid(props: Readonly<PropsWithChildren<GridProps>>){
+    const { children, students, onAddStudent, onRemoveStudent } = props
     // const [students, setStudents] = useState<StudentProps[]>(props.students ?? [])
 
 
@@ -22,6 +23,7 @@ export default function Grid(props: GridProps){
 
     return (
         <section>
+            {children}
         <article className="grid">
             {students.map((student) => (
             <Student key={student.id} name={student.name} id={student.id} onRemoveStudent={onRemoveStudent} />
@@ -34,3 +36,4 @@ export default function Grid(props: GridProps){
        
     )
 }
+

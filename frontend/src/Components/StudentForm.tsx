@@ -23,7 +23,7 @@ export default function StudentForm(props: StudentFormProps){
 
     return (
         <>
-        <form onSubmit={handleSubmit} className='student-form'>
+        <form onSubmit={handleSubmit} className='add-student-form'>
             <label htmlFor='name'>Name</label>
             <input type='text' id='name' placeholder='student name' value={name} onChange={(e) => setName(e.target.value)}/>
             <button type='submit'>Add student</button>

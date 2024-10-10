@@ -1,12 +1,12 @@
-export type Id = ReturnType<typeof crypto.randomUUID>;
+// export type Id = ReturnType<typeof crypto.randomUUID>;
 
 export type Student = {
     name: string;
     id: string;
-    deleted?: boolean;
+    // deleted?: boolean;
 }
 
-export type Total = {
-    totalCount: number;
-    totalId: Id
-  };
+// export type Total = {
+//     totalCount: number;
+//     totalId: Id
+//   };

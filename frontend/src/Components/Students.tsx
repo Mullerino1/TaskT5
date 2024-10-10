@@ -24,7 +24,7 @@ export default function Student(
         <Avatar name={name} />
         <p className="student-name">{name}</p>
         {showRemove ? (
-        <button type="button" onClick={() => onRemoveStudent(id)}>Remove</button>
+        <button type="button" onClick={() => onRemoveStudent(id)} className="delete-button">Remove</button>
         ) : null}
         </>
     )
